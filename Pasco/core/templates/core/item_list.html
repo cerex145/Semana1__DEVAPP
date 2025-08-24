@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Items <span class="badge" id="count">{{ items|length }}</span></h2>
+
+    <div class="toolbar">
+        <input id="search" class="input" placeholder="Buscar por nombre...">
+        <button id="refresh" class="btn">Recargar</button>
+    </div>
+
+    <!-- Formulario para crear por API (sin recargar) -->
+    <form id="add-form" style="margin-bottom:12px;">
+        <input class="input" name="name" placeholder="Nombre" required>
+        <textarea class="input" name="description" placeholder="Descripción (opcional)" style="margin-top:8px;"></textarea>
+        <button class="btn" style="margin-top:8px;" type="submit">Agregar</button>
+    </form>
+
+    <!-- Lista que el servidor ya renderiza (fallback SEO) -->
+    <ul class="list" id="server-list">
+        {% for item in items %}
+        <li data-name="{{ item.name|lower }}">
+            <span>{{ item.name }} — {{ item.created_at|date:"d/m/Y H:i" }}</span>
+            <button class="btn delete-btn" data-id="{{ item.id }}">Eliminar</button>
+        </li>
+        {% empty %}
+        <li>No items available.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Lista que el JS puede controlar (si usas API) -->
+    <ul class="list" id="client-list" style="display:none;"></ul>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+:root { font-family: system-ui, Arial, sans-serif; }
+body { margin: 0; background: #f6f7fb; color: #222; }
+header, footer { background: #1f2937; color: #fff; padding: 14px 20px; }
+main { max-width: 900px; margin: 24px auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+h1, h2 { margin: 0 0 12px; }
+.btn { display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #ddd; background:#fafafa; cursor:pointer; }
+.btn:hover { background:#f0f0f0; }
+.input { padding:8px 10px; border-radius:8px; border:1px solid #ddd; width:100%; box-sizing:border-box; }
+.list { list-style:none; padding:0; margin:0; }
+.list li { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px solid #eee; }
+.badge { font-size:.85rem; background:#eef2ff; padding:2px 8px; border-radius:999px; }
+.toolbar { display:flex; gap:10px; margin-bottom:14px; }
